@@ -47,3 +47,4 @@ function bresenham(x0, y0, x1, y1, plot) {
         }
     }
 }
+prueba desde vs 
