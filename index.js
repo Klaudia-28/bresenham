@@ -46,6 +46,14 @@ function Bresenham(x0,y0,x1,y1){
     }
 }
 
+//agrega una fila a la tabla 
+function agregarFila(paso, x, y, err){
+    let tabla =document.getElementById("tabla");
+    let fila =tabla.insertRow();
+
+    
+}
+
 //funcion principal
 function dibujarLinea(){
 
