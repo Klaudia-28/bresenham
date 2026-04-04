@@ -2,30 +2,30 @@
 const canvas= document.getElementById("canvas");
 const ctx= canvas.getContext("2d");
 
-function drawPoint(x,y,size){
-    ctx.fillRect(x - size/2, (canvas.height - y) - size/2, size, size);
+function drawPoint(x, y, size) {
+    ctx.fillRect(x- size/2, (canvas.height- y)- size/2, size, size);
 }
 //dibujar la escala en el canvas
-function dibujarEscala(){
-    ctx.font = "10px Arial";
-    ctx.fillStyle = "black";
+function dibujarEscala() {
+    ctx.font= "10px Arial";
+    ctx.fillStyle= "black";
 
     // eje X 
-    for(let i = 0; i <= canvas.width; i += 50){
-        ctx.fillText(i, i, canvas.height - 5);
+    for (let i= 0; i <= canvas.width; i+= 50) {
+        ctx.fillText(i, i, canvas.height-5);
     }
 
     // eje Y 
-for(let i = 0; i <= canvas.height; i += 50){
-    ctx.fillText(i, 5, canvas.height - i);
-}
+    for (let i= 0; i <= canvas.height; i+= 50) {
+        ctx.fillText(i, 5, canvas.height-i);
+    }
 }
 
 //limpiar canvas
-function limpiarCanvas(){
-    ctx.clearRect(0,0,canvas.width, canvas.height);
+function limpiarCanvas() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     let tabla= document.getElementById("tabla");
-    tabla.innerHTML=`
+    tabla.innerHTML= `
     <tr>
         <th>Paso</th>
         <th>X</th>
@@ -35,35 +35,34 @@ function limpiarCanvas(){
     `;
 }
 
-
 //algoritmo de Bresenham
-function Bresenham(x0,y0,x1,y1){
-    let dx=Math.abs(x1-x0);
-    let dy=Math.abs(y1-y0);
+function Bresenham(x0, y0, x1, y1) {
+    let dx = Math.abs(x1 - x0);
+    let dy = Math.abs(y1 - y0);
 
-    let sx =(x0<x1)? 1:-1;
-    let sy =(y0<y1)? 1:-1;
+    let sx = (x0 < x1) ? 1 : -1;
+    let sy = (y0 < y1) ? 1 : -1;
 
-    let err =dx-dy;
+    let err = dx - dy;
 
-    let paso=0;
-      while(true){
+    let paso = 0;
+    while (true) {
         //dibujar el punto
-        drawPoint(x0,y0,3);
+        drawPoint(x0, y0, 3);
         //guardar los datos en la tabla
-        agregarFila(paso,x0,y0,err);
+        agregarFila(paso, x0, y0, err);
         //condición de fin
-        if(x0 === x1 && y0 === y1){
+        if (x0 === x1 && y0 === y1) {
             break;
         }
-        let e2 =2*err;
+        let e2 = 2 * err;
 
-        if(e2 > -dy){
+        if (e2 > -dy) {
             err -= dy;
             x0 += sx;
         }
 
-        if(e2 < dx){
+        if (e2 < dx) {
             err += dx;
             y0 += sy;
         }
@@ -72,23 +71,23 @@ function Bresenham(x0,y0,x1,y1){
 }
 
 //agrega una fila a la tabla 
-function agregarFila(paso, x, y, err){
-    let tabla =document.getElementById("tabla");
-    let fila =tabla.insertRow();
+function agregarFila(paso, x, y, err) {
+    let tabla = document.getElementById("tabla");
+    let fila = tabla.insertRow();
 
-    let celdaPaso= fila.insertCell(0);
-    let celdaX= fila.insertCell(1);
-    let celdaY= fila.insertCell(2);
-    let celdaErr= fila.insertCell(3);
+    let celdaPaso = fila.insertCell(0);
+    let celdaX = fila.insertCell(1);
+    let celdaY = fila.insertCell(2);
+    let celdaErr = fila.insertCell(3);
 
-    celdaPaso.textContent= paso;
-    celdaX.textContent= x;
-    celdaY.textContent= y;
-    celdaErr.textContent= err;   
+    celdaPaso.textContent = paso;
+    celdaX.textContent = x;
+    celdaY.textContent = y;
+    celdaErr.textContent = err;
 }
 
 //funcion principal
-function dibujarLinea(){
+function dibujarLinea() {
 
     //obtener valores
     const x0 = parseInt(document.getElementById("x0").value);
@@ -99,7 +98,5 @@ function dibujarLinea(){
     limpiarCanvas();
     dibujarEscala();
     //dibuja puntos inicial y final
-    Bresenham(x0,y0,x1,y1);
-
-    
+    Bresenham(x0, y0, x1, y1);
 }

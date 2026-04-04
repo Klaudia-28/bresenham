@@ -1,93 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <!--título de la pestaña-->
     <title>Algoritmo Bresenham</title>
-</head>
-<body>
+  </head>
+  <body>
     <font face="Segoe UI, Arial, sans-serif">
-
-    <!--título de la aplicación-->
-    <h1 align="center">Dibujo de línea</h1>
-
-    <!--explicación del programa-->
-    <p align="center">
-        Dibujo de una línea usando el algoritmo de Bresenham
-    </p>
-
-     <!--ingreso de los datos-->
-    <h3 align="center">Ingrese las coordenadas</h3>
-
-    <!--tabla con dato y valor-->
-    <center>
-      <table>
-        <tr>
+      <!--título de la aplicación-->
+      <h1 align="center">Dibujo de línea</h1>
+      <!--explicación del programa-->
+      <p align="center"> Dibujo de una línea usando el algoritmo de Bresenham </p>
+      <!--ingreso de los datos-->
+      <h3 align="center">Ingrese las coordenadas</h3>
+      <!--tabla con dato y valor-->
+      <center>
+        <table>
+          <tr>
             <th>Dato</th>
             <th>Valor</th>
-        </tr>
-    <!--COORDENADAS-->
-    <!--x0-->
-    <tr>
-        <td>X0</td>
-        <!--value= valor por defecto que ve el usuario-->
-        <td><input type="number" id="x0" value="50"></td>
-    </tr>
-     <!--x1-->
-    <tr>
-        <td>Y0</td>
-        <td><input type="number" id="y0" value="50"></td>
-    </tr>
-    <!--y0-->
-    <tr>
-        <td>X1</td>
-        <td><input type="number" id="x1" value="100"></td>
-    </tr>
-     <!--y1-->
-    <tr>
-        <td>Y1</td>
-        <td><input type="number" id="y1" value="100"></td>
-    </tr>
-
-      </table>  
-    </center>
-
-     <!--botones-->
-     <p align="center">
+          </tr>
+          <!--COORDENADAS-->
+          <!--x0-->
+          <tr>
+            <td>X0</td>
+            <!--value= valor por defecto que ve el usuario-->
+            <td>
+              <input type="number" id="x0" value="50">
+            </td>
+          </tr>
+          <!--x1-->
+          <tr>
+            <td>Y0</td>
+            <td>
+              <input type="number" id="y0" value="50">
+            </td>
+          </tr>
+          <!--y0-->
+          <tr>
+            <td>X1</td>
+            <td>
+              <input type="number" id="x1" value="100">
+            </td>
+          </tr>
+          <!--y1-->
+          <tr>
+            <td>Y1</td>
+            <td>
+              <input type="number" id="y1" value="100">
+            </td>
+          </tr>
+        </table>
+      </center>
+      <!--botones-->
+      <p align="center">
         <button onclick="dibujarLinea()">Dibujar línea</button>
         <button onclick="limpiarCanvas()">Limpiar canvas</button>
-     </p>
-
-     <!--tabla para pasos-->
-    <center>
+      </p>
+      <!--tabla para pasos-->
+      <center>
         <table>
-            <tr> 
-                <!--tabla a la izquierda-->
-                <td valing="top">
-        <table border="1" id="tabla">
-        <tr>
-            <th>Paso</th>
-            <th>X</th>
-            <th>Y</th>
-            <th>Error</th>
-        </tr>
+          <tr>
+            <!--tabla a la izquierda-->
+            <td valing="top">
+              <table border="1" id="tabla">
+                <tr>
+                  <th>Paso</th>
+                  <th>X</th>
+                  <th>Y</th>
+                  <th>Error</th>
+                </tr>
+              </table>
+            </td>
+            <!--espacio entre la tabla y el canvas-->
+            <td width="20"></td>
+            <!--canvas a la derecha-->
+            <td valing="top">
+              <canvas id="canvas" width="500" height="500" style="border:1px solid black;"></canvas>
+            </td>
+          </tr>
         </table>
-        </td>
-
-    
-    <!--espacio entre la tabla y el canvas-->
-        <td width="20"></td>
-    
-     <!--canvas a la derecha-->
-     <td valing="top">
-        <canvas id="canvas" width="500" height="500" style="border:1px solid black;"></canvas>
-     </td>
-     </tr>
-     </table>
-     </center>
-
+      </center>
       <!--conexión con el js-->
       <script src="index.js"></script>
-   
-</body>
+  </body>
 </html>
