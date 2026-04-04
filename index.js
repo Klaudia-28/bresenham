@@ -2,15 +2,24 @@
 const canvas= document.getElementById("canvas");
 const ctx= canvas.getContext("2d");
 
+function drawPoint(x,y,size){
+    ctx.fillRect(x - size/2, y - size/2, size, size);
+}
+
 //limpiar canvas
 function limpiarCanvas(){
     ctx.clearRect(0,0,canvas.width, canvas.height);
+    let tabla= document.getElementById("tabla");
+    tabla.innerHTML=`
+    <tr>
+        <th>Paso</th>
+        <th>X</th>
+        <th>Y</th>
+        <th>Error</th>
+    </tr>
+    `;
 }
 
-//función para dibujar un punto en el canvas
-function drawPoint(x,y,size){
-    ctx.fillRect(x-size/2, y-size/2, size, size);
-}
 
 //algoritmo de Bresenham
 function Bresenham(x0,y0,x1,y1){
@@ -21,8 +30,9 @@ function Bresenham(x0,y0,x1,y1){
     let sy =(y0<y1)? 1:-1;
 
     let err =dx-dy;
+
+    let paso=0;
       while(true){
-        let paso=0;
         //dibujar el punto
         drawPoint(x0,y0,3);
         //guardar los datos en la tabla
@@ -56,10 +66,10 @@ function agregarFila(paso, x, y, err){
     let celdaY= fila.insertCell(2);
     let celdaErr= fila.insertCell(3);
 
-    celdaPaso.innerHTML= paso;
-    celdaX.innerHTML= x;
-    celdaY.innerHTML= y;
-    celdaErr.innerHTML= err;   
+    celdaPaso.textContent= paso;
+    celdaX.textContent= x;
+    celdaY.textContent= y;
+    celdaErr.textContent= err;   
 }
 
 //funcion principal
@@ -74,6 +84,5 @@ function dibujarLinea(){
     limpiarCanvas();
 
     //dibuja puntos inicial y final
-    ctx.fillRect(x0, y0, 4);
-    ctx.fillRect(x1, y1, 4);
+    Bresenham(x0,y0,x1,y1);
 }
