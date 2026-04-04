@@ -5,6 +5,21 @@ const ctx= canvas.getContext("2d");
 function drawPoint(x,y,size){
     ctx.fillRect(x - size/2, y - size/2, size, size);
 }
+//dibujar la escala en el canvas
+function dibujarEscala(){
+    ctx.font = "10px Arial";
+    ctx.fillStyle = "black";
+
+    // eje X 
+    for(let i = 0; i <= canvas.width; i += 50){
+        ctx.fillText(i, i, canvas.height - 5);
+    }
+
+    // eje Y 
+    for(let i = 0; i <= canvas.height; i += 50){
+        ctx.fillText(i, 5, i);
+    }
+}
 
 //limpiar canvas
 function limpiarCanvas(){
