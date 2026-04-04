@@ -21,8 +21,29 @@ function Bresenham(x0,y0,x1,y1){
     let sy =(y0<y1)? 1:-1;
 
     let err =dx-dy;
-  
+      while(true){
+        let paso=0;
+        //dibujar el punto
+        drawPoint(x0,y0,3);
+        //guardar los datos en la tabla
+        agregarFila(paso,x0,y0,err);
+        //condición de fin
+        if(x0 === x1 && y0 === y1){
+            break;
+        }
+        let e2 =2*err;
 
+        if(e2 > -dy){
+            err -= dy;
+            x0 += sx;
+        }
+
+        if(e2 < dx){
+            err += dx;
+            y0 += sy;
+        }
+        paso++;
+    }
 }
 
 //funcion principal
