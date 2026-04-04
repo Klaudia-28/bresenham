@@ -7,6 +7,11 @@ function limpiarCanvas(){
     ctx.clearRect(0,0,canvas.width, canvas.height);
 }
 
+//función para dibujar un punto en el canvas
+function drawPoint(x,y,size){
+    ctx.fillRect(x-size/2, y-size/2, size, size);
+}
+
 //funcion principal
 function dibujarLinea(){
 
@@ -19,6 +24,6 @@ function dibujarLinea(){
     limpiarCanvas();
 
     //dibuja puntos inicial y final
-    ctx.fillRect(x0, y0, 4, 4);
-    ctx.fillRect(x1, y1, 4, 4);
+    ctx.fillRect(x0, y0, 4);
+    ctx.fillRect(x1, y1, 4);
 }
