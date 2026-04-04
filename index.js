@@ -3,7 +3,7 @@ const canvas= document.getElementById("canvas");
 const ctx= canvas.getContext("2d");
 
 function drawPoint(x,y,size){
-    ctx.fillRect(x - size/2, y - size/2, size, size);
+    ctx.fillRect(x - size/2, (canvas.height - y) - size/2, size, size);
 }
 //dibujar la escala en el canvas
 function dibujarEscala(){
@@ -16,9 +16,9 @@ function dibujarEscala(){
     }
 
     // eje Y 
-    for(let i = 0; i <= canvas.height; i += 50){
-        ctx.fillText(i, 5, i);
-    }
+for(let i = 0; i <= canvas.height; i += 50){
+    ctx.fillText(i, 5, canvas.height - i);
+}
 }
 
 //limpiar canvas
@@ -97,7 +97,9 @@ function dibujarLinea(){
     const y1 = parseInt(document.getElementById("y1").value);
 
     limpiarCanvas();
-
+    dibujarEscala();
     //dibuja puntos inicial y final
     Bresenham(x0,y0,x1,y1);
+
+    
 }
