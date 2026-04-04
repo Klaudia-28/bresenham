@@ -52,18 +52,19 @@
       </table>  
     </center>
 
-     <!--botón-->
+     <!--botones-->
      <p align="center">
         <button onclick="dibujarLinea()">Dibujar línea</button>
-     </p>
-
-     <p align="center">
         <button onclick="limpiarCanvas()">Limpiar canvas</button>
      </p>
 
      <!--tabla para pasos-->
-    
-        <table border="1" id="tabla" align="center">
+    <center>
+        <table>
+            <tr> 
+                <!--tabla a la izquierda-->
+                <td valing="top">
+        <table border="1" id="tabla">
         <tr>
             <th>Paso</th>
             <th>X</th>
@@ -71,12 +72,19 @@
             <th>Error</th>
         </tr>
         </table>
-    
+        </td>
 
-     <!--canvas-->
-     <p align="center">
-        <canvas id="canvas" width="500" height="500"></canvas>
-     </p>
+    
+    <!--espacio entre la tabla y el canvas-->
+        <td width="20"></td>
+    
+     <!--canvas a la derecha-->
+     <td valing="top">
+        <canvas id="canvas" width="500" height="500" style="border:1px solid black;"></canvas>
+     </td>
+     </tr>
+     </table>
+     </center>
 
       <!--conexión con el js-->
       <script src="index.js"></script>
