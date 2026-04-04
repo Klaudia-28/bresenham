@@ -51,7 +51,15 @@ function agregarFila(paso, x, y, err){
     let tabla =document.getElementById("tabla");
     let fila =tabla.insertRow();
 
-    
+    let celdaPaso= fila.insertCell(0);
+    let celdaX= fila.insertCell(1);
+    let celdaY= fila.insertCell(2);
+    let celdaErr= fila.insertCell(3);
+
+    celdaPaso.innerHTML= paso;
+    celdaX.innerHTML= x;
+    celdaY.innerHTML= y;
+    celdaErr.innerHTML= err;   
 }
 
 //funcion principal
