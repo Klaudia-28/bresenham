@@ -45,6 +45,7 @@ function limpiarCanvas() {
         <th>Error</th>
     </tr>
     `;
+    dibujarEscala();
 }
 
 /**parte de codigo suministrada por el profesor
@@ -114,8 +115,16 @@ function dibujarLinea() {
     const x1 = parseInt(document.getElementById("x1").value);
     const y1 = parseInt(document.getElementById("y1").value);
 
+    //calcular escala automática
+    let maxX = Math.max(x0, x1);
+    let maxY = Math.max(y0, y1);
+    maxGlobal = Math.max(maxX, maxY);
+
+    if (maxGlobal === 0) {
+        maxGlobal = 1;
+    }
+    escala = canvas.width / maxGlobal;
     limpiarCanvas();
-    dibujarEscala();
     //dibuja puntos inicial y final
     Bresenham(x0, y0, x1, y1);
 }
