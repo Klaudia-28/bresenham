@@ -4,6 +4,7 @@ const ctx= canvas.getContext("2d");
 
 //variable global para escala
 let escala = 1;
+let maxGlobal = 1;
 
 //función para dibujar la cuadrícula
 function dibujarCuadricula() {
@@ -26,7 +27,7 @@ function dibujarCuadricula() {
 }
 
 //dibujar punto
-function drawPoint(x, y) {
+function drawPoint(x0, y0) {
     let size = 4;
     ctx.fillRect(
         (x * escala) - size / 2,
