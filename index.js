@@ -9,6 +9,13 @@ let escala = 1;
 function dibujarCuadricula() {
     ctx.strokeStyle = "#dddddd"; //gris clarito
     ctx.lineWidth = 1;
+//lineas en el eje X
+    for (let x = 0; x <= canvas.width; x += escala) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, canvas.height);
+        ctx.stroke();
+    }
 }
 
 function drawPoint(x, y, size) {
