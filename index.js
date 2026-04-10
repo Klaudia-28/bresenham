@@ -2,9 +2,14 @@
 const canvas= document.getElementById("canvas");
 const ctx= canvas.getContext("2d");
 
-//variables globales para escala
+//variable global para escala
 let escala = 1;
-let maxGlobal = 100;
+
+//función para dibujar la cuadrícula
+function dibujarCuadricula() {
+    ctx.strokeStyle = "#dddddd"; //gris clarito
+    ctx.lineWidth = 1;
+}
 
 function drawPoint(x, y, size) {
 //dibuja cada punto de la línea en el canvas
