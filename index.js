@@ -25,6 +25,12 @@ function dibujarCuadricula() {
     }
 }
 
+//limpiar canvas
+function limpiarCanvas() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    dibujarCuadricula(); //aquí se dibuja la cuadrícula siempre
+}
+
 function drawPoint(x, y, size) {
 //dibuja cada punto de la línea en el canvas
     ctx.fillRect(
