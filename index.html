@@ -8,25 +8,30 @@
       body {
         font-family: "Segoe UI", Arial, sans-serif;
       }
+
       /*color título*/
-      h1{
-        color:#490b75;
-      } 
+      h1 {
+        color: #490b75;
+      }
+
       /*color subtítulos*/
-      h3, th {
+      h3,
+      th {
         color: #b674d1;
       }
-      /*inputs de coordenadas*/
-input[type="number"] {
-  border: 2px solid #9f40c4;
-  padding: 4px;
-}
 
-/*cuando el usuario hace clic*/
-input[type="number"]:focus {
-  outline: none;
-  border-color: #a776bb;
-}
+      /*inputs de coordenadas*/
+      input[type="number"] {
+        border: 2px solid #9f40c4;
+        padding: 4px;
+      }
+
+      /*cuando el usuario hace clic*/
+      input[type="number"]:focus {
+        outline: none;
+        border-color: #a776bb;
+      }
+
       /*botones*/
       button {
         background-color: #e6ccff;
@@ -34,14 +39,17 @@ input[type="number"]:focus {
         padding: 5px 10px;
         cursor: pointer;
       }
-        button:hover {
+
+      button:hover {
         background-color: #a46cdc;
       }
+
       /*color del canvas*/
       canvas {
         border: 2px solid #b674d1;
         background-color: #c6efc6;
       }
+
       /*color de la tabla*/
       #tabla {
         background-color: #d5f6d5;
@@ -55,13 +63,13 @@ input[type="number"]:focus {
         background-color: #f3e6ff;
       }
 
-      td, th {
+      td,
+      th {
         padding: 4px;
         text-align: center;
       }
-      </style>
+    </style>
   </head>
-  
   <body>
     <font face="Segoe UI, Arial, sans-serif">
       <!--título de la aplicación-->
@@ -119,25 +127,24 @@ input[type="number"]:focus {
         <table>
           <tr>
             <!--canvas-->
-    <td valign="top">
-      <canvas id="canvas" width="500" height="500" style="border:1px solid black;"></canvas>
-    </td>
-
-    <!--tabla-->
-    <td valign="top">
-      <div style="height:500px; overflow:auto;">
-        <table id="tabla" border="1">
-          <tr>
-            <th>Paso</th>
-            <th>X</th>
-            <th>Y</th>
-            <th>Error</th>
+            <td valign="top">
+              <canvas id="canvas" width="500" height="500" style="border:1px solid black;"></canvas>
+            </td>
+            <!--tabla-->
+            <td valign="top">
+              <div style="height:500px; overflow:auto;">
+                <table id="tabla" border="1">
+                  <tr>
+                    <th>Paso</th>
+                    <th>X</th>
+                    <th>Y</th>
+                    <th>Error</th>
+                  </tr>
+                </table>
+              </div>
+            </td>
           </tr>
         </table>
-      </div>
-    </td>
-  </tr>
-</table>
-<script src="index.js"></script>
-</body>
+        <script src="index.js"></script>
+  </body>
 </html>
