@@ -7,32 +7,27 @@ let escala = 1;
 
 //función para dibujar la cuadrícula
 function dibujarCuadricula() {
-    ctx.strokeStyle = "#dddddd"; //gris clarito
-    ctx.lineWidth = 1;
+    ctx.strokeStyle= "#dddddd"; //gris clarito
+    ctx.lineWidth= 1;
 //lineas en el eje X
-    for (let x = 0; x <= canvas.width; x += escala) {
+    for (let x= 0; x<= canvas.width; x+= escala) {
         ctx.beginPath();
-        ctx.moveTo(x, 0);
-        ctx.lineTo(x, canvas.height);
+        ctx.moveTo(x,0);
+        ctx.lineTo(x,canvas.height);
         ctx.stroke();
     }
 //lineas en el eje Y
-    for (let y = 0; y <= canvas.height; y += escala) {
+    for (let y= 0; y<= canvas.height; y+= escala) {
         ctx.beginPath();
-        ctx.moveTo(0, y);
-        ctx.lineTo(canvas.width, y);
+        ctx.moveTo(0,y);
+        ctx.lineTo(canvas.width,y);
         ctx.stroke();
     }
 }
 
-//limpiar canvas
-function limpiarCanvas() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    dibujarCuadricula(); //aquí se dibuja la cuadrícula siempre
-}
-
-function drawPoint(x, y, size) {
-//dibuja cada punto de la línea en el canvas
+//dibujar punto
+function drawPoint(x, y) {
+    let size = 4;
     ctx.fillRect(
         (x * escala) - size / 2,
         (canvas.height - y * escala) - size / 2,
@@ -40,6 +35,7 @@ function drawPoint(x, y, size) {
         size
     );
 }
+
 //dibujar la escala en el canvas
 function dibujarEscala() {
     ctx.font= "10px Arial";
@@ -60,9 +56,10 @@ function dibujarEscala() {
 
 //limpiar canvas
 function limpiarCanvas() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    //limpiar tabla
     let tabla= document.getElementById("tabla");
-    tabla.innerHTML= `
+    tabla.innerHTML = `
     <tr>
         <th>Paso</th>
         <th>X</th>
@@ -70,7 +67,8 @@ function limpiarCanvas() {
         <th>Error</th>
     </tr>
     `;
-    dibujarEscala();
+    dibujarCuadricula(); //dibuja primero la cuadricula
+    dibujarEscala();//luego dibuja la escala
 }
 
 /**parte de codigo suministrada por el profesor
