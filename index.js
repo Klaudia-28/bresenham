@@ -2,8 +2,18 @@
 const canvas= document.getElementById("canvas");
 const ctx= canvas.getContext("2d");
 
+//variables globales para escala
+let escala = 1;
+let maxGlobal = 100;
+
 function drawPoint(x, y, size) {
-    ctx.fillRect(x- size/2, (canvas.height- y)- size/2, size, size);
+//dibuja cada punto de la línea en el canvas
+    ctx.fillRect(
+        (x * escala) - size / 2,
+        (canvas.height - y * escala) - size / 2,
+        size,
+        size
+    );
 }
 //dibujar la escala en el canvas
 function dibujarEscala() {
