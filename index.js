@@ -1,6 +1,6 @@
 //obtiene el canvas
-const canvas= document.getElementById("canvas");
-const ctx= canvas.getContext("2d");
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
 
 //variable global para escala
 let escala = 1;
@@ -8,20 +8,20 @@ let maxGlobal = 1;
 
 //función para dibujar la cuadrícula
 function dibujarCuadricula() {
-    ctx.strokeStyle= "#dddddd"; //gris clarito
-    ctx.lineWidth= 1;
-//lineas en el eje X
-    for (let x= 0; x<= canvas.width; x+= escala) {
+    ctx.strokeStyle = "#dddddd"; //gris clarito
+    ctx.lineWidth = 1;
+    //lineas en el eje X
+    for (let x = 0; x <= canvas.width; x += escala) {
         ctx.beginPath();
-        ctx.moveTo(x,0);
-        ctx.lineTo(x,canvas.height);
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, canvas.height);
         ctx.stroke();
     }
-//lineas en el eje Y
-    for (let y= 0; y<= canvas.height; y+= escala) {
+    //lineas en el eje Y
+    for (let y = 0; y <= canvas.height; y += escala) {
         ctx.beginPath();
-        ctx.moveTo(0,y);
-        ctx.lineTo(canvas.width,y);
+        ctx.moveTo(0, y);
+        ctx.lineTo(canvas.width, y);
         ctx.stroke();
     }
 }
@@ -30,8 +30,8 @@ function dibujarCuadricula() {
 function drawPoint(x0, y0) {
     let size = 5;
     ctx.fillRect(
-        (x0 *escala)- size/2,
-        (canvas.height- y0* escala)-size/2,
+        (x0 * escala) - size / 2,
+        (canvas.height - y0 * escala) - size / 2,
         size,
         size
     );
@@ -39,13 +39,13 @@ function drawPoint(x0, y0) {
 
 //dibujar la escala en el canvas
 function dibujarEscala() {
-    ctx.font= "10px Arial";
-    ctx.fillStyle= "black";
+    ctx.font = "10px Arial";
+    ctx.fillStyle = "black";
 
     let paso = Math.ceil(maxGlobal / 10);
 
     // eje X 
-   for (let i = 0; i <= maxGlobal; i += paso) {
+    for (let i = 0; i <= maxGlobal; i += paso) {
         ctx.fillText(i, i * escala, canvas.height - 5);
     }
 
@@ -57,9 +57,9 @@ function dibujarEscala() {
 
 //limpiar canvas
 function limpiarCanvas() {
-    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     //limpiar tabla
-    let tabla= document.getElementById("tabla");
+    let tabla = document.getElementById("tabla");
     tabla.innerHTML = `
     <tr>
         <th>Paso</th>
@@ -69,7 +69,7 @@ function limpiarCanvas() {
     </tr>
     `;
     dibujarCuadricula(); //dibuja primero la cuadricula
-    dibujarEscala();//luego dibuja la escala
+    dibujarEscala(); //luego dibuja la escala
 }
 
 /**parte de codigo suministrada por el profesor
