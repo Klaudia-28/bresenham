@@ -28,10 +28,10 @@ function dibujarCuadricula() {
 
 //dibujar punto
 function drawPoint(x0, y0) {
-    let size = 4;
+    let size = 5;
     ctx.fillRect(
-        (x * escala) - size / 2,
-        (canvas.height - y * escala) - size / 2,
+        (x0 *escala)- size/2,
+        (canvas.height- y0* escala)-size/2,
         size,
         size
     );
@@ -92,7 +92,7 @@ function Bresenham(x0, y0, x1, y1) {
     let paso = 0;
     while (true) {
         //dibujar el punto
-        drawPoint(x0, y0, 3);
+        drawPoint(x0, y0);
         //guardar los datos en la tabla
         agregarFila(paso, x0, y0, err);
         //condición de fin
