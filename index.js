@@ -20,14 +20,16 @@ function dibujarEscala() {
     ctx.font= "10px Arial";
     ctx.fillStyle= "black";
 
+    let paso = Math.ceil(maxGlobal / 10);
+
     // eje X 
-    for (let i= 0; i <= canvas.width; i+= 50) {
-        ctx.fillText(i, i, canvas.height-5);
+   for (let i = 0; i <= maxGlobal; i += paso) {
+        ctx.fillText(i, i * escala, canvas.height - 5);
     }
 
     // eje Y 
-    for (let i= 0; i <= canvas.height; i+= 50) {
-        ctx.fillText(i, 5, canvas.height-i);
+    for (let i = 0; i <= maxGlobal; i += paso) {
+        ctx.fillText(i, 5, canvas.height - (i * escala));
     }
 }
 
