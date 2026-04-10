@@ -10,21 +10,58 @@
       }
       /*color título*/
       h1{
-        color:#6a0dad;
+        color:#490b75;
       } 
       /*color subtítulos*/
       h3, th {
-        color: #9b59b6;
+        color: #b674d1;
       }
-      /* botones */
+      /*inputs de coordenadas*/
+input[type="number"] {
+  border: 2px solid #9f40c4;
+  padding: 4px;
+}
+
+/*cuando el usuario hace clic*/
+input[type="number"]:focus {
+  outline: none;
+  border-color: #a776bb;
+}
+      /*botones*/
       button {
         background-color: #e6ccff;
         border: 1px solid #b57edc;
         padding: 5px 10px;
         cursor: pointer;
       }
+        button:hover {
+        background-color: #a46cdc;
+      }
+      /*color del canvas*/
+      canvas {
+        border: 2px solid #b674d1;
+        background-color: #c6efc6;
+      }
+      /*color de la tabla*/
+      #tabla {
+        background-color: #d5f6d5;
+      }
+
+      table {
+        border-collapse: collapse;
+      }
+
+      th {
+        background-color: #f3e6ff;
+      }
+
+      td, th {
+        padding: 4px;
+        text-align: center;
+      }
       </style>
   </head>
+  
   <body>
     <font face="Segoe UI, Arial, sans-serif">
       <!--título de la aplicación-->
