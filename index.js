@@ -16,6 +16,13 @@ function dibujarCuadricula() {
         ctx.lineTo(x, canvas.height);
         ctx.stroke();
     }
+//lineas en el eje Y
+    for (let y = 0; y <= canvas.height; y += escala) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(canvas.width, y);
+        ctx.stroke();
+    }
 }
 
 function drawPoint(x, y, size) {
