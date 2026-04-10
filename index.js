@@ -35,6 +35,13 @@ function limpiarCanvas() {
     `;
 }
 
+/**parte de codigo suministrada por el profesor
+ * Implementa el algoritmo de Bresenham para dibujar una línea.
+ * @param {number} x0 - Coordenada inicial en X
+ * @param {number} y0 - Coordenada inicial en Y
+ * @param {number} x1 - Coordenada final en X
+ * @param {number} y1 - Coordenada final en Y
+ */
 //algoritmo de Bresenham
 function Bresenham(x0, y0, x1, y1) {
     let dx = Math.abs(x1 - x0);
